@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+
+
+.register-container {
+  
+  max-width: 300px;
+  margin: 50px auto;
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+  background-color: white;
+}
+
+.register-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.register-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-container input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.register-container button {
+  background-color: #2563eb; 
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.register-container button:hover {
+  background-color: #1e40af;
+}
+
+.register-container p {
+  color: red;
+  text-align: center;
+}

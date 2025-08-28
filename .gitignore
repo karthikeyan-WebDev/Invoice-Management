@@ -1,0 +1,69 @@
+# === Django ===
+*.py[cod]
+__pycache__/
+db.sqlite3
+*.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+
+# Django migrations
+**/migrations/
+!*/migrations/__init__.py
+
+# Django media/static (if using local uploads/staticfiles)
+media/
+staticfiles/
+static/
+
+# VSCode and IDE files
+.vscode/
+.idea/
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Python virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# Coverage, testing, and build files
+htmlcov/
+coverage.xml
+*.cover
+*.py,cover
+*.mo
+
+# === React (Vite or CRA) ===
+**/node_modules/
+**/dist/
+**/build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables for React
+**/.env
+**/.env.*
+
+# Cache and misc
+**/.parcel-cache/
+**/.eslintcache
+**/.next/
+**/.turbo/
+**/.vite/
+**/.DS_Store
+
+# === MacOS/Linux/Windows ===
+.DS_Store
+Thumbs.db

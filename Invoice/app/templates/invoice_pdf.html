@@ -1,0 +1,77 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Invoice {{ invoice.invoice_number }}</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    h1 { text-align: center; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { padding: 8px; border: 1px solid #000; }
+    .total-row { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Invoice {{ invoice.invoice_number }}</h1>
+  <p><strong>Client:</strong> {{ invoice.client.name }}</p>
+  <p><strong>Issue Date:</strong> {{ invoice.issue_date }}</p>
+  <p><strong>Due Date:</strong> {{ invoice.due_date }}</p>
+  <p><strong>Status:</strong> {{ invoice.payment_status|capfirst }}</p>
+  <button id="printBtn">Open and Print</button>
+  
+
+  <h2>Items</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Qty</th>
+        <th>Rate</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in invoice.items.all %}
+      <tr>
+        <td>{{ item.description }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.rate }}</td>
+        <td>{{ item.amount }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr class="total-row"><td colspan="3">Subtotal</td><td>{{ invoice.subtotal }}</td></tr>
+      <tr class="total-row"><td colspan="3">Total</td><td>{{ invoice.total }}</td></tr>
+      <tr><td colspan="3">Amount Paid</td><td>{{ invoice.amount_paid }}</td></tr>
+      <tr><td colspan="3">Balance</td><td>{{ invoice.balance }}</td></tr>
+    </tfoot>
+  </table>
+
+  {% if invoice.notes %}
+    <p><strong>Notes:</strong> {{ invoice.notes }}</p>
+  {% endif %}
+
+  <script>
+    document.getElementById('printBtn').addEventListener('click', () => {
+      const newWindow = window.open(' ', '_blank');
+
+      // Make sure newWindow exists (popup blockers may block it)
+      if (newWindow) {
+        newWindow.onload = () => {
+          newWindow.print();
+        };
+      } else {
+        alert('Popup blocked! Please allow popups for this site.');
+      }
+    });
+  </script>
+</body>
+</html> {% endcomment %}
+
+
+
+
+
+
+
