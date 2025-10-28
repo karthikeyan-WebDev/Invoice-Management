@@ -301,7 +301,7 @@ const Payments = () => {
                         <option value="">-- Select Invoice --</option>
                         {invoices.map((invoice) => (
                           <option key={invoice.id} value={invoice.id}>
-                            {invoice.invoice_number} - {invoice.client?.name} {invoice.total_amount}
+                            {invoice.invoice_number} - {invoice.client_name}
                           </option>
                         ))}
                       </select>
